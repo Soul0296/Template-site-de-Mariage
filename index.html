@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Razid & Takya · 22.08.26</title>
+    <!-- Google Font : Playfair Display + Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 300;
+            color: #1a1a2e;
+            letter-spacing: 0.02em;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --ivory: #f5f0eb;
+            --sage: #a8b5a0;
+            --champagne: #e8dccc;
+            --soft-blush: #f0dcd6;
+            --gold: #c9a87c;
+            --gold-light: #dfc9a8;
+            --gold-shadow: rgba(184, 150, 110, 0.25);
+            --dark-text: #1a1a2e;
+            --light-text: #5a5a7a;
+            --deep-gold: #b8943e;
+            --luxury-blue: #1a2a4a;
+            --luxury-blue-light: #2a3a6a;
+            --luxury-blue-pale: #e8ecf5;
+            --rose: #d4a0a0;
+            --rose-light: #e8c8c8;
+            --rose-glow: rgba(212, 160, 160, 0.2);
+            --blue-reflect: rgba(26, 42, 74, 0.06);
+            --gold-text: #c9a87c;
+            --date-color: #b8943e;
+            --marine-blue: #0f2847;
+            --marine-blue-light: #1a3a5a;
+            --marine-glow: rgba(15, 40, 71, 0.08);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- NAVBAR ----- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 14px 40px;
+            background: rgba(26, 42, 74, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(201, 168, 124, 0.08);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 30px rgba(26, 42, 74, 0.12);
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 400;
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.35s ease;
+            letter-spacing: 0.08rem;
+            position: relative;
+        }
+
+        .nav-btn i {
+            margin-right: 6px;
+            font-size: 0.7rem;
+            color: var(--gold);
+            opacity: 0.4;
+            transition: all 0.35s ease;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            padding: 1px;
+            background: linear-gradient(135deg, transparent, transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .nav-btn:hover {
+            color: #fff;
+            background: rgba(201, 168, 124, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn:hover i {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .nav-btn:hover::before {
+            opacity: 1;
+            background: linear-gradient(135deg, var(--gold), rgba(201, 168, 124, 0.3));
+        }
+
+        .nav-btn.active {
+            color: #fff;
+            background: rgba(201, 168, 124, 0.12);
+        }
+
+        .nav-btn.active i {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .nav-btn.active::before {
+            opacity: 1;
+            background: linear-gradient(135deg, var(--gold), rgba(201, 168, 124, 0.2));
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            margin-left: 16px;
+            border-left: 1px solid rgba(255, 255, 255, 0.06);
+            padding-left: 16px;
+        }
+
+        .lang-switch button {
+            background: transparent;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 400;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05rem;
+        }
+
+        .lang-switch button:hover {
+            color: #fff;
+            background: rgba(201, 168, 124, 0.08);
+        }
+
+        .lang-switch button.active {
+            color: var(--gold);
+            background: rgba(201, 168, 124, 0.1);
+        }
+
+        section {
+            padding: 100px 0 80px;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-size: 2.2rem;
+            letter-spacing: 0.15em;
+            color: var(--luxury-blue);
+            margin-bottom: 2.5rem;
+            text-align: center;
+            border-bottom: 2px solid var(--gold-light);
+            display: inline-block;
+            padding-bottom: 10px;
+            font-style: italic;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        /* ----- HERO ----- */
+        .hero {
+            padding: 0;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26, 42, 74, 0.35) 0%, rgba(212, 160, 160, 0.15) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 50px 60px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            box-shadow: 0 0 60px rgba(26, 42, 74, 0.1), inset 0 0 60px rgba(212, 160, 160, 0.03);
+            max-width: 850px;
+            width: 90%;
+            transition: box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .hero-content:hover {
+            box-shadow: 0 0 80px rgba(201, 168, 124, 0.12), inset 0 0 80px rgba(201, 168, 124, 0.03);
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-size: 5rem;
+            letter-spacing: 0.2rem;
+            color: #fff;
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-content .sub {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-size: 1.6rem;
+            letter-spacing: 0.3rem;
+            color: var(--date-color);
+            border-top: 1px solid rgba(201, 168, 124, 0.2);
+            border-bottom: 1px solid rgba(201, 168, 124, 0.2);
+            display: inline-block;
+            padding: 4px 20px;
+            margin-top: 4px;
+            font-style: italic;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ----- STICKY WRAPPER avec superposition des sections ----- */
+        .sticky-wrapper {
+            position: relative;
+        }
+
+        .sticky-wrapper .hero-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            height: 100vh;
+        }
+
+        /* Animation de superposition : chaque section se superpose à la précédente */
+        .sticky-wrapper section:not(.hero) {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            background: rgba(248, 250, 255, 0.92);
+            backdrop-filter: blur(6px);
+            border-radius: 50px 50px 0 0;
+            padding-top: 70px;
+            margin-top: 0;
+            min-height: 100vh;
+            transform: translateY(0);
+            transition: transform 0.1s ease;
+            opacity: 1;
+        }
+
+        /* Effet de superposition : la section du bas glisse sur celle du haut */
+        .sticky-wrapper section:not(.hero)::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, rgba(248, 250, 255, 0.92));
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .countdown-section,
+        .agenda-section,
+        .story-section,
+        .guestbook-section {
+            background: rgba(248, 250, 255, 0.92);
+            backdrop-filter: blur(6px);
+        }
+
+        /* Ordre des z-index pour la superposition */
+        .countdown-section { z-index: 2; }
+        .agenda-section { z-index: 3; }
+        .story-section { z-index: 4; }
+        .guestbook-section { z-index: 5; }
+
+        /* ----- SECTIONS AVEC BLEU MARIN ET REFLETS ----- */
+        .countdown-section {
+            background: linear-gradient(145deg, rgba(15, 40, 71, 0.04) 0%, rgba(248, 250, 255, 0.94) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .countdown-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(15, 40, 71, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .countdown-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-section {
+            background: linear-gradient(145deg, rgba(15, 40, 71, 0.05) 0%, rgba(245, 240, 245, 0.92) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .story-section::before {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 50%;
+            height: 70%;
+            background: radial-gradient(ellipse, rgba(15, 40, 71, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .story-section .container {
+            position: relative;
+            z-index: 1;
+            padding: 60px 24px;
+            width: 100%;
+        }
+
+        .guestbook-section {
+            background: linear-gradient(145deg, rgba(15, 40, 71, 0.03) 0%, rgba(240, 242, 245, 0.94) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .guestbook-section::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 20%;
+            width: 40%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(201, 168, 124, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .guestbook-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ----- COUNTDOWN ----- */
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(2px);
+            padding: 22px 32px;
+            min-width: 120px;
+            border-radius: 40px;
+            text-align: center;
+            border: 1px solid rgba(201, 168, 124, 0.12);
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(26, 42, 74, 0.04);
+        }
+
+        .countdown-item:hover {
+            box-shadow: 0 0 40px rgba(201, 168, 124, 0.12);
+            border-color: var(--gold);
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .countdown-item span {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: 0.1rem;
+            color: var(--luxury-blue);
+        }
+
+        .countdown-item small {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25rem;
+            color: var(--light-text);
+            font-weight: 400;
+        }
+
+        .countdown-item i {
+            color: var(--gold);
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* ----- AGENDA ----- */
+        .agenda-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .agenda-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .agenda-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            border: 1px solid rgba(201, 168, 124, 0.08);
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(26, 42, 74, 0.02);
+        }
+
+        .agenda-item:hover {
+            box-shadow: 0 0 30px rgba(201, 168, 124, 0.08);
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateX(4px);
+        }
+
+        .agenda-time {
+            font-weight: 500;
+            color: var(--luxury-blue);
+            letter-spacing: 0.1rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 80px;
+        }
+
+        .agenda-time i {
+            color: var(--gold);
+            font-size: 0.9rem;
+            width: 18px;
+        }
+
+        .agenda-desc {
+            font-weight: 300;
+            color: var(--dark-text);
+            font-size: 0.95rem;
+        }
+
+        .agenda-desc i {
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+        .agenda-image {
+            flex: 0 0 380px;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 3px solid rgba(201, 168, 124, 0.12);
+            box-shadow: 0 8px 40px rgba(26, 42, 74, 0.06);
+            transition: all 0.4s ease;
+            aspect-ratio: 4/5;
+        }
+
+        .agenda-image:hover {
+            box-shadow: 0 0 60px rgba(201, 168, 124, 0.08);
+            border-color: var(--gold);
+            transform: scale(1.005);
+        }
+
+        .agenda-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .agenda-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ----- STORY - photo en fond, texte par-dessus ----- */
+        .story-section {
+            background: none;
+            position: relative;
+        }
+
+        .story-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(135deg, rgba(26, 42, 74, 0.5) 0%, rgba(26, 42, 74, 0.2) 50%, rgba(212, 160, 160, 0.15) 100%);
+        }
+
+        .story-section .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 80px 24px;
+        }
+
+        .story-section .section-title h2 {
+            color: #fff;
+            border-bottom-color: rgba(201, 168, 124, 0.4);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .story-section .section-title h2 i {
+            color: var(--gold) !important;
+        }
+
+        .story-card-overlay {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            padding: 50px 60px;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .story-card-overlay:hover {
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 0 60px rgba(201, 168, 124, 0.08);
+            border-color: rgba(201, 168, 124, 0.2);
+        }
+
+        .story-card-overlay p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 2;
+            color: #fff;
+            font-style: italic;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-card-overlay .ring-icon-big {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-top: 20px;
+            opacity: 0.6;
+            letter-spacing: 14px;
+        }
+
+        /* ----- GUESTBOOK ----- */
+        .guestbook-container {
+            max-width: 760px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(2px);
+            padding: 44px 40px;
+            border-radius: 60px;
+            border: 1px solid rgba(201, 168, 124, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .guestbook-container:hover {
+            box-shadow: 0 0 60px rgba(201, 168, 124, 0.08);
+            border-color: var(--gold);
+        }
+
+        .guestbook-container textarea {
+            width: 100%;
+            border: 1px solid rgba(201, 168, 124, 0.12);
+            border-radius: 40px;
+            padding: 20px 26px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            resize: vertical;
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--dark-text);
+            transition: border 0.2s, box-shadow 0.2s;
+            min-height: 120px;
+        }
+
+        .guestbook-container textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(201, 168, 124, 0.06);
+        }
+
+        .guestbook-container .btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            padding: 12px 40px;
+            border-radius: 60px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.2rem;
+            color: var(--luxury-blue);
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guestbook-container .btn i {
+            color: var(--gold);
+        }
+
+        .guestbook-container .btn:hover {
+            background: var(--gold);
+            color: #fff;
+            box-shadow: 0 0 50px rgba(201, 168, 124, 0.12);
+            border-color: var(--gold);
+        }
+        .guestbook-container .btn:hover i {
+            color: #fff;
+        }
+
+        .message-confirm {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 12px;
+            background: rgba(201, 168, 124, 0.06);
+            border-radius: 60px;
+            color: var(--luxury-blue);
+            font-weight: 400;
+        }
+        .message-confirm.show {
+            display: block;
+        }
+
+        .gold-divider {
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            margin: 20px auto;
+            opacity: 0.3;
+        }
+
+        /* ----- FOOTER avec copyright ----- */
+        .footer {
+            background: var(--luxury-blue);
+            padding: 40px 24px 30px;
+            text-align: center;
+            border-top: 2px solid rgba(201, 168, 124, 0.15);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(201, 168, 124, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer .footer-ring {
+            font-size: 1.8rem;
+            color: var(--gold);
+            opacity: 0.3;
+            letter-spacing: 16px;
+            margin-bottom: 12px;
+        }
+
+        .footer .footer-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #fff;
+            letter-spacing: 0.3rem;
+            margin-bottom: 6px;
+        }
+
+        .footer .footer-date {
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 0.2rem;
+            margin-bottom: 16px;
+            opacity: 0.7;
+        }
+
+        .footer .footer-copy {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.7rem;
+            letter-spacing: 0.15rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 16px;
+            margin-top: 8px;
+        }
+
+        .footer .footer-copy i {
+            color: var(--gold);
+            margin: 0 4px;
+            opacity: 0.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .agenda-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .agenda-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 500px;
+                aspect-ratio: 4/3;
+            }
+            .agenda-content {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 16px;
+                gap: 2px;
+            }
+            .nav-btn {
+                padding: 6px 14px;
+                font-size: 0.65rem;
+            }
+            .nav-btn i {
+                margin-right: 4px;
+                font-size: 0.6rem;
+            }
+            .lang-switch {
+                margin-left: 8px;
+                padding-left: 8px;
+            }
+            .lang-switch button {
+                padding: 3px 8px;
+                font-size: 0.55rem;
+            }
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+            .hero-content .sub {
+                font-size: 1.2rem;
+            }
+            .hero-content {
+                padding: 30px 20px;
+            }
+            .countdown-item {
+                min-width: 80px;
+                padding: 16px 16px;
+            }
+            .countdown-item span {
+                font-size: 2.4rem;
+            }
+            .story-card-overlay {
+                padding: 30px 24px;
+            }
+            .story-card-overlay p {
+                font-size: 1.1rem;
+            }
+            .guestbook-container {
+                padding: 28px 18px;
+            }
+            section {
+                padding: 80px 0 60px;
+            }
+            .sticky-wrapper section:not(.hero) {
+                padding-top: 50px;
+                border-radius: 30px 30px 0 0;
+            }
+            .agenda-item {
+                padding: 14px 18px;
+                flex-wrap: wrap;
+            }
+            .agenda-time {
+                min-width: 70px;
+                font-size: 0.9rem;
+            }
+            .agenda-desc {
+                font-size: 0.85rem;
+            }
+            .agenda-image {
+                max-width: 100%;
+                aspect-ratio: 4/3;
+            }
+            .footer .footer-names {
+                font-size: 1.1rem;
+            }
+            .story-section .container {
+                min-height: 70vh;
+                padding: 60px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .hero-content .sub {
+                font-size: 1rem;
+                letter-spacing: 0.2rem;
+            }
+            .countdown-item {
+                min-width: 65px;
+                padding: 12px 10px;
+            }
+            .countdown-item span {
+                font-size: 1.8rem;
+            }
+            .countdown-item small {
+                font-size: 0.65rem;
+                letter-spacing: 0.1rem;
+            }
+            .countdown-grid {
+                gap: 12px;
+            }
+            .nav-btn {
+                padding: 4px 8px;
+                font-size: 0.55rem;
+            }
+            .navbar {
+                gap: 2px;
+                padding: 8px 6px;
+            }
+            .agenda-item {
+                padding: 12px 14px;
+                border-radius: 30px;
+            }
+            .agenda-time {
+                font-size: 0.8rem;
+                min-width: 60px;
+            }
+            .agenda-desc {
+                font-size: 0.8rem;
+            }
+            .agenda-image {
+                aspect-ratio: 4/3;
+            }
+            .story-card-overlay {
+                padding: 24px 16px;
+            }
+            .story-card-overlay p {
+                font-size: 1rem;
+            }
+            .footer .footer-names {
+                font-size: 0.95rem;
+            }
+            .footer .footer-copy {
+                font-size: 0.6rem;
+            }
+            .story-section .container {
+                min-height: 60vh;
+                padding: 40px 12px;
+            }
+        }
+
+        .agenda-item:nth-child(odd) {
+            background: rgba(201, 168, 124, 0.03);
+        }
+        .countdown-item:nth-child(2) {
+            background: rgba(201, 168, 124, 0.03);
+        }
+        .guestbook-container {
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .hero-content {
+            background: rgba(255, 255, 255, 0.04);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <a href="#hero" class="nav-btn active"><i class="fas fa-home"></i> Accueil</a>
+        <a href="#agenda" class="nav-btn"><i class="fas fa-calendar-check"></i> Programme</a>
+        <a href="#story" class="nav-btn"><i class="fas fa-feather-alt"></i> Notre rencontre</a>
+        <a href="#guestbook" class="nav-btn"><i class="fas fa-book-open"></i> Livre d'or</a>
+        <div class="lang-switch">
+            <button class="active" data-lang="fr" id="langFr">FR</button>
+            <button data-lang="en" id="langEn">EN</button>
+        </div>
+    </nav>
+
+    <div class="sticky-wrapper">
+        <!-- HERO STICKY -->
+        <div class="hero-sticky" id="hero">
+            <div class="hero">
+                <img class="hero-image" src="https://images.pexels.com/photos/12670285/pexels-photo-12670285.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Mariage élégant">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Razid & Takya</h1>
+                    <div class="sub">22.08.26</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COUNTDOWN -->
+        <section class="countdown-section" id="countdown">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="countdown-title"><i class="fas fa-clock" style="color: var(--gold); margin-right: 12px; font-size: 1.8rem;"></i> avant le grand jour</h2>
+                </div>
+                <div class="countdown-grid" id="countdownGrid">
+                    <div class="countdown-item"><span id="days">00</span><small data-i18n="days"><i class="fas fa-sun"></i> jours</small></div>
+                    <div class="countdown-item"><span id="hours">00</span><small data-i18n="hours"><i class="fas fa-clock"></i> heures</small></div>
+                    <div class="countdown-item"><span id="minutes">00</span><small data-i18n="minutes"><i class="fas fa-hourglass-half"></i> minutes</small></div>
+                    <div class="countdown-item"><span id="seconds">00</span><small data-i18n="seconds"><i class="fas fa-stopwatch"></i> secondes</small></div>
+                </div>
+                <div class="gold-divider"></div>
+            </div>
+        </section>
+
+        <!-- AGENDA -->
+        <section class="agenda-section" id="agenda">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="agenda-title"><i class="fas fa-calendar-check" style="color: var(--gold); margin-right: 12px;"></i> programme</h2>
+                </div>
+                <div class="agenda-wrapper">
+                    <div class="agenda-content">
+                        <div class="agenda-item"><span class="agenda-time"><i class="fas fa-clock"></i> 16:00</span><span class="agenda-desc" data-i18n="agenda1"><i class="fas fa-leaf" style="color: var(--sage);"></i>Cérémonie · Jardin des Oliviers</span></div>
+                        <div class="agenda-item"><span class="agenda-time"><i class="fas fa-clock"></i> 17:30</span><span class="agenda-desc" data-i18n="agenda2"><i class="fas fa-camera" style="color: var(--gold);"></i>Vin d'honneur & photos</span></div>
+                        <div class="agenda-item"><span class="agenda-time"><i class="fas fa-clock"></i> 19:30</span><span class="agenda-desc" data-i18n="agenda3"><i class="fas fa-utensils" style="color: var(--luxury-blue-light);"></i>Dîner & danses</span></div>
+                        <div class="agenda-item"><span class="agenda-time"><i class="fas fa-clock"></i> 22:00</span><span class="agenda-desc" data-i18n="agenda4"><i class="fas fa-cake" style="color: var(--gold);"></i>Pièce montée & surprises</span></div>
+                        <div class="agenda-item"><span class="agenda-time"><i class="fas fa-clock"></i> 00:00</span><span class="agenda-desc" data-i18n="agenda5"><i class="fas fa-music" style="color: var(--soft-blush);"></i>After · jusqu'à l'aube</span></div>
+                    </div>
+                    <div class="agenda-image">
+                        <img src="https://images.pexels.com/photos/7436115/pexels-photo-7436115.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Décoration de mariage élégante">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORY -->
+        <section class="story-section" id="story">
+            <img class="story-bg" src="https://images.pexels.com/photos/33005349/pexels-photo-33005349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Rencontre romantique">
+            <div class="story-overlay"></div>
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="story-title"><i class="fas fa-feather-alt" style="color: var(--gold); margin-right: 12px;"></i> notre rencontre</h2>
+                </div>
+                <div class="story-card-overlay">
+                    <p data-i18n="story-text">“Un matin de printemps, sous les fleurs de cerisier, nos regards se sont croisés. Depuis, chaque saison a été une promesse. Le 22 août 2026, nous écrirons le premier chapitre de notre éternité.”</p>
+                    <div class="ring-icon-big">
+                        <i class="fas fa-ring"></i> <i class="fas fa-heart" style="color: var(--rose);"></i> <i class="fas fa-ring"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUESTBOOK -->
+        <section class="guestbook-section" id="guestbook">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="guestbook-title"><i class="fas fa-book-open" style="color: var(--gold); margin-right: 12px;"></i> livre d'or</h2>
+                </div>
+                <div class="guestbook-container">
+                    <textarea id="guestMessage" placeholder="Laissez un petit mot pour Razid & Takya …" rows="3" data-i18n-placeholder="guest-placeholder"></textarea>
+                    <div style="display: flex; justify-content: flex-end; align-items: center; gap: 16px; flex-wrap: wrap;">
+                        <button class="btn" id="sendMessage" data-i18n="send-btn"><i class="fas fa-pen-fancy"></i> envoyer</button>
+                    </div>
+                    <div class="message-confirm" id="messageConfirm" data-i18n="confirm-msg">
+                        <i class="fas fa-check-circle" style="color: var(--gold);"></i> Votre message a été envoyé aux mariés par email !
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-ring">
+                <i class="fas fa-ring"></i> <i class="fas fa-ring"></i> <i class="fas fa-ring"></i>
+            </div>
+            <div class="footer-names">Razid & Takya</div>
+            <div class="footer-date">22.08.26</div>
+            <div class="footer-copy">
+                <i class="fas fa-copyright"></i> 2026 — Tous droits réservés
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // COUNTDOWN
+            const weddingDate = new Date('2026-08-22T00:00:00').getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                let distance = weddingDate - now;
+                if (distance < 0) distance = 0;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // GUESTBOOK
+            const messageInput = document.getElementById('guestMessage');
+            const sendBtn = document.getElementById('sendMessage');
+            const confirmMsg = document.getElementById('messageConfirm');
+
+            sendBtn.addEventListener('click', function() {
+                const text = messageInput.value.trim();
+                if (text === '') {
+                    alert('Écrivez un petit mot pour les mariés 💌');
+                    return;
+                }
+
+                const subject = encodeURIComponent('Message Livre d\'or - Razid & Takya');
+                const body = encodeURIComponent(
+                    `Message de : Invité·e\n\n${text}\n\n---\nMessage envoyé depuis le site de mariage Razid & Takya - 22.08.26`
+                );
+                window.location.href =
+                    `mailto:razid.takya@example.com?subject=${subject}&body=${body}`;
+
+                confirmMsg.classList.add('show');
+                messageInput.value = '';
+
+                setTimeout(() => {
+                    confirmMsg.classList.remove('show');
+                }, 6000);
+            });
+
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendBtn.click();
+                }
+            });
+
+            // NAVBAR ACTIVE LINK
+            const navBtns = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('section, .hero-sticky');
+
+            function updateActiveNav() {
+                let current = '';
+                const scrollPos = window.scrollY + 150;
+
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        current = section.id || 'hero';
+                    }
+                });
+
+                navBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                    const href = btn.getAttribute('href');
+                    if (href === '#' + current || (current === 'hero' && href === '#hero')) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav);
+            updateActiveNav();
+
+            // TRADUCTION
+            const translations = {
+                fr: {
+                    'countdown-title': 'avant le grand jour',
+                    'days': 'jours',
+                    'hours': 'heures',
+                    'minutes': 'minutes',
+                    'seconds': 'secondes',
+                    'agenda-title': 'programme',
+                    'agenda1': 'Cérémonie · Jardin des Oliviers',
+                    'agenda2': 'Vin d\'honneur & photos',
+                    'agenda3': 'Dîner & danses',
+                    'agenda4': 'Pièce montée & surprises',
+                    'agenda5': 'After · jusqu\'à l\'aube',
+                    'story-title': 'notre rencontre',
+                    'story-text': '“Un matin de printemps, sous les fleurs de cerisier, nos regards se sont croisés. Depuis, chaque saison a été une promesse. Le 22 août 2026, nous écrirons le premier chapitre de notre éternité.”',
+                    'guestbook-title': 'livre d\'or',
+                    'guest-placeholder': 'Laissez un petit mot pour Razid & Takya …',
+                    'send-btn': 'envoyer',
+                    'confirm-msg': 'Votre message a été envoyé aux mariés par email !'
+                },
+                en: {
+                    'countdown-title': 'before the big day',
+                    'days': 'days',
+                    'hours': 'hours',
+                    'minutes': 'minutes',
+                    'seconds': 'seconds',
+                    'agenda-title': 'schedule',
+                    'agenda1': 'Ceremony · Olive Garden',
+                    'agenda2': 'Welcome drink & photos',
+                    'agenda3': 'Dinner & dancing',
+                    'agenda4': 'Wedding cake & surprises',
+                    'agenda5': 'After party · until dawn',
+                    'story-title': 'our story',
+                    'story-text': '“One spring morning, under the cherry blossoms, our eyes met. Since then, every season has been a promise. On August 22, 2026, we will write the first chapter of our eternity.”',
+                    'guestbook-title': 'guestbook',
+                    'guest-placeholder': 'Leave a message for Razid & Takya …',
+                    'send-btn': 'send',
+                    'confirm-msg': 'Your message has been sent to the couple by email!'
+                }
+            };
+
+            let currentLang = 'fr';
+
+            function setLanguage(lang) {
+                currentLang = lang;
+                const t = translations[lang];
+
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (t[key] !== undefined) {
+                        const icon = el.querySelector('i');
+                        if (icon) {
+                            const iconHTML = icon.outerHTML;
+                            el.innerHTML = iconHTML + ' ' + t[key];
+                        } else {
+                            el.textContent = t[key];
+                        }
+                    }
+                });
+
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (t[key] !== undefined) {
+                        el.placeholder = t[key];
+                    }
+                });
+
+                document.querySelectorAll('.lang-switch button').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+            }
+
+            document.getElementById('langFr').addEventListener('click', () => setLanguage('fr'));
+            document.getElementById('langEn').addEventListener('click', () => setLanguage('en'));
+
+            setLanguage('fr');
+
+            // Animation de superposition sans fondu d'opacité
+            const allSections = document.querySelectorAll('.sticky-wrapper section:not(.hero)');
+
+            // On s'assure que toutes les sections sont pleinement visibles
+            allSections.forEach((section) => {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            });
+
+            // Effet de parallaxe léger sur les sections (déplacement vertical)
+            window.addEventListener('scroll', function() {
+                const scrollY = window.scrollY;
+                allSections.forEach((section) => {
+                    const rect = section.getBoundingClientRect();
+                    const sectionTop = rect.top + scrollY;
+                    const progress = (scrollY - sectionTop) / window.innerHeight;
+
+                    // Effet de superposition subtil : la section se déplace légèrement vers le haut
+                    if (progress > 0 && progress < 1.5) {
+                        const translateY = Math.min(progress * -25, -20);
+                        section.style.transform = `translateY(${translateY}px)`;
+                    } else if (progress >= 1.5) {
+                        section.style.transform = 'translateY(-25px)';
+                    } else {
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { passive: true });
+
+        })();
+    </script>
+</body>
+</html>
