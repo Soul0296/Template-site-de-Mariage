@@ -1114,3 +1114,11 @@
     .story-section, .story-section .container { min-height: 0 !important; }
     .story-section .container { padding: 44px 18px !important; }
 }
+
+@media (max-width: 768px) {
+    body.mobile-reveal-enabled .sticky-wrapper section.mobile-reveal { opacity: 0 !important; transform: translate3d(0, 12px, 0) !important; transition: opacity .38s ease, transform .38s ease !important; }
+    body.mobile-reveal-enabled .sticky-wrapper section.mobile-reveal.is-visible { opacity: 1 !important; transform: translate3d(0, 0, 0) !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    body.mobile-reveal-enabled .sticky-wrapper section.mobile-reveal, body.mobile-reveal-enabled .sticky-wrapper section.mobile-reveal.is-visible { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
