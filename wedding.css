@@ -1104,3 +1104,13 @@
 .photo-upload-form label.photo-consent { display: flex; align-items: flex-start; gap: 10px; color: var(--light-text); font-weight: 400; }
 .photo-upload-form .photo-consent input { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 2px; accent-color: var(--deep-gold); }
 .photo-upload-form input[type=file] { cursor: pointer; }
+
+
+/* Mobile: keep every section in the document flow so the scroll effect cannot cover content. */
+@media (max-width: 768px) {
+    .sticky-wrapper .hero-sticky { position: relative; top: auto; height: auto; min-height: 100svh; }
+    .sticky-wrapper section:not(.hero) { position: relative !important; top: auto !important; z-index: auto !important; min-height: 0 !important; margin-top: 0; padding: 62px 0 42px !important; transform: none !important; transition: none !important; opacity: 1 !important; overflow: visible; border-radius: 24px 24px 0 0; backdrop-filter: none; }
+    .sticky-wrapper section:not(.hero)::before { display: none; content: none; }
+    .story-section, .story-section .container { min-height: 0 !important; }
+    .story-section .container { padding: 44px 18px !important; }
+}

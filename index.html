@@ -474,34 +474,31 @@
 
             setLanguage('fr');
 
-            // Animation de superposition sans fondu d'opacité
-            const allSections = document.querySelectorAll('.sticky-wrapper section:not(.hero)');
-
-            // On s'assure que toutes les sections sont pleinement visibles
-            allSections.forEach((section) => {
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
-            });
-
-            // Effet de parallaxe léger sur les sections (déplacement vertical)
-            window.addEventListener('scroll', function() {
-                const scrollY = window.scrollY;
+            // Keep the stacking and parallax effect on larger screens only.
+            if (!window.matchMedia('(max-width: 768px)').matches) {
+                const allSections = document.querySelectorAll('.sticky-wrapper section:not(.hero)');
                 allSections.forEach((section) => {
-                    const rect = section.getBoundingClientRect();
-                    const sectionTop = rect.top + scrollY;
-                    const progress = (scrollY - sectionTop) / window.innerHeight;
-
-                    // Effet de superposition subtil : la section se déplace légèrement vers le haut
-                    if (progress > 0 && progress < 1.5) {
-                        const translateY = Math.min(progress * -25, -20);
-                        section.style.transform = `translateY(${translateY}px)`;
-                    } else if (progress >= 1.5) {
-                        section.style.transform = 'translateY(-25px)';
-                    } else {
-                        section.style.transform = 'translateY(0)';
-                    }
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
                 });
-            }, { passive: true });
+
+                window.addEventListener('scroll', function() {
+                    const scrollY = window.scrollY;
+                    allSections.forEach((section) => {
+                        const rect = section.getBoundingClientRect();
+                        const sectionTop = rect.top + scrollY;
+                        const progress = (scrollY - sectionTop) / window.innerHeight;
+                        if (progress > 0 && progress < 1.5) {
+                            const translateY = Math.min(progress * -25, -20);
+                            section.style.transform = 'translateY(' + translateY + 'px)';
+                        } else if (progress >= 1.5) {
+                            section.style.transform = 'translateY(-25px)';
+                        } else {
+                            section.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { passive: true });
+            }
 
         })();
     </script>
