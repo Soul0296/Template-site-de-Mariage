@@ -105,6 +105,24 @@
             }
         });
 
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+            const photoCards = document.querySelectorAll('.all-photo-card');
+            const directions = ['from-left', 'from-top', 'from-right', 'from-bottom'];
+            photoCards.forEach((card, index) => {
+                card.classList.add('photo-reveal-ready', directions[index % directions.length]);
+                card.style.setProperty('--photo-reveal-delay', (index % 4) * 75 + 'ms');
+            });
+            const photoObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -24px 0px' });
+            photoCards.forEach(card => photoObserver.observe(card));
+        }
+
         const photoDialog = document.getElementById('photoDialog');
         const dialogImage = document.getElementById('dialogImage');
         const dialogCaption = document.getElementById('dialogCaption');
