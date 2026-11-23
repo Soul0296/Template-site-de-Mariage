@@ -600,8 +600,7 @@
             border: 1px solid rgba(201, 168, 124, 0.28); border-radius: 28px;
             background: var(--champagne); box-shadow: 0 12px 34px rgba(26, 42, 74, 0.1);
         }
-        .gallery-photo-link, .gallery-card img { display: block; width: 100%; height: 100%; }
-        .gallery-card img { object-fit: cover; transition: transform 0.65s ease; }
+        .gallery-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s ease; }
         .gallery-card::after {
             content: ''; position: absolute; inset: 35% 0 0;
             background: linear-gradient(transparent, rgba(15, 40, 71, 0.74)); pointer-events: none;
@@ -611,9 +610,7 @@
             font-family: 'Playfair Display', serif; font-size: 1.08rem; font-style: italic;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
         }
-        .gallery-credit { display: block; margin-top: 4px; font: 400 0.65rem/1.3 'Quicksand', sans-serif; letter-spacing: 0.04em; opacity: 0.82; }
-        .gallery-card:hover img, .gallery-photo-link:focus-visible img { transform: scale(1.06); }
-        .gallery-photo-link:focus-visible { outline: 3px solid var(--gold); outline-offset: -5px; }
+        .gallery-card:hover img { transform: scale(1.06); }
         @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 480px) {
             .gallery-grid { gap: 12px; }
@@ -1106,11 +1103,11 @@
             <div class="container">
                 <div class="section-title"><h2 data-i18n="info-title"><i class="fas fa-map-marked-alt" style="color: var(--gold); margin-right: 12px;"></i> informations pratiques</h2></div>
                 <div class="info-grid">
-                    <article class="info-card"><i class="fas fa-calendar-day" aria-hidden="true"></i><h3 data-i18n="info-date-title">La date</h3><p>23 mai 2027<br><span data-i18n="info-arrival-placeholder">Horaire d'arriv&eacute;e &agrave; pr&eacute;ciser</span><br>C&eacute;r&eacute;monie &agrave; 16 h</p></article>
-                    <article class="info-card"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><h3 data-i18n="info-place-title">Le lieu</h3><p>Jardin des Oliviers<br><span data-i18n="info-address-placeholder">Ville et adresse &agrave; personnaliser</span></p><a href="https://www.google.com/maps/search/?api=1&amp;query=Jardin+des+Oliviers" target="_blank" rel="noopener noreferrer" data-i18n="info-map-link">Voir le lieu sur Maps (lien &agrave; personnaliser)</a></article>
-                    <article class="info-card"><i class="fas fa-user-tie" aria-hidden="true"></i><h3 data-i18n="info-dress-title">Tenue</h3><p data-i18n="info-dress-text">Consigne vestimentaire &agrave; personnaliser</p></article>
+                    <article class="info-card"><i class="fas fa-calendar-day" aria-hidden="true"></i><h3 data-i18n="info-date-title">La date</h3><p>23 mai 2027<br><span data-i18n="info-arrival-placeholder">Horaire d'accueil indiqu&eacute; sur votre invitation</span><br>C&eacute;r&eacute;monie &agrave; 16 h</p></article>
+                    <article class="info-card"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><h3 data-i18n="info-place-title">Le lieu</h3><p>Jardin des Oliviers<br><span data-i18n="info-address-placeholder">Adresse compl&egrave;te communiqu&eacute;e sur votre invitation</span></p><a href="https://www.google.com/maps/search/?api=1&amp;query=Jardin+des+Oliviers" target="_blank" rel="noopener noreferrer" data-i18n="info-map-link">Ouvrir l'itin&eacute;raire</a></article>
+                    <article class="info-card"><i class="fas fa-user-tie" aria-hidden="true"></i><h3 data-i18n="info-dress-title">Tenue</h3><p data-i18n="info-dress-text">Tenue de c&eacute;r&eacute;monie &eacute;l&eacute;gante</p></article>
                 </div>
-                <p class="template-note" data-i18n="info-template-note">Modifiez le nom du lieu, l'adresse et le lien Maps avant de partager ce template.</p>
+                <p class="template-note" data-i18n="info-template-note">Pour toute question sur l'acc&egrave;s, utilisez les coordonn&eacute;es figurant sur votre invitation.</p>
             </div>
         </section>
 
@@ -1122,28 +1119,20 @@
                 </div>
                 <div class="gallery-grid">
                     <figure class="gallery-card">
-                        <a class="gallery-photo-link" href="https://unsplash.com/photos/a-man-and-woman-posing-for-a-picture-jcPvftDvmGs" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la photo du couple">
-                            <img src="https://images.unsplash.com/photo-1664645573886-7eb81dbcf7e5?auto=format&fit=crop&w=900&q=80" alt="Couple noir en tenue de mariage, portrait romantique" loading="lazy" decoding="async">
-                        </a>
-                        <figcaption><span data-i18n="gallery-caption-1">Un regard complice</span><small class="gallery-credit">Photo: Christophe Dusabe / Unsplash</small></figcaption>
+                        <img src="https://images.unsplash.com/photo-1664645573886-7eb81dbcf7e5?auto=format&fit=crop&w=900&q=80" alt="Couple noir en tenue de mariage, portrait romantique" loading="lazy" decoding="async">
+                        <figcaption><span data-i18n="gallery-caption-1">Un regard complice</span></figcaption>
                     </figure>
                     <figure class="gallery-card">
-                        <a class="gallery-photo-link" href="https://unsplash.com/photos/a-bride-and-groom-kissing-in-front-of-a-white-wall-jbvd1Vi6jwU" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la photo du baiser des mariés">
-                            <img src="https://images.unsplash.com/photo-1719499683843-721331f2495f?auto=format&fit=crop&w=900&q=80" alt="Mari?s noirs partageant un baiser" loading="lazy" decoding="async">
-                        </a>
-                        <figcaption><span data-i18n="gallery-caption-2">Le premier baiser</span><small class="gallery-credit">Photo: Stacey Vandas / Unsplash</small></figcaption>
+                        <img src="https://images.unsplash.com/photo-1719499683843-721331f2495f?auto=format&fit=crop&w=900&q=80" alt="Mari&eacute;s noirs partageant un baiser" loading="lazy" decoding="async">
+                        <figcaption><span data-i18n="gallery-caption-2">Le premier baiser</span></figcaption>
                     </figure>
                     <figure class="gallery-card">
-                        <a class="gallery-photo-link" href="https://unsplash.com/photos/a-black-and-white-photo-of-a-bride-and-groom-7Oq5mU8s7Rk" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le portrait des mariés">
-                            <img src="https://images.unsplash.com/photo-1739526169460-198129c6105b?auto=format&fit=crop&w=900&q=80" alt="Portrait de mariés nigérians" loading="lazy" decoding="async">
-                        </a>
-                        <figcaption><span data-i18n="gallery-caption-3">Un amour intemporel</span><small class="gallery-credit">Photo: Chidy Young / Unsplash</small></figcaption>
+                        <img src="https://images.unsplash.com/photo-1739526169460-198129c6105b?auto=format&fit=crop&w=900&q=80" alt="Portrait de mariés nigérians" loading="lazy" decoding="async">
+                        <figcaption><span data-i18n="gallery-caption-3">Un amour intemporel</span></figcaption>
                     </figure>
                     <figure class="gallery-card">
-                        <a class="gallery-photo-link" href="https://unsplash.com/photos/a-newly-married-couple-walking-through-a-field-SiniLJkXhMc" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la photo des mariés dans un champ">
-                            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=900&q=80" alt="Jeunes mariés marchant ensemble dans un champ" loading="lazy" decoding="async">
-                        </a>
-                        <figcaption><span data-i18n="gallery-caption-4">Main dans la main</span><small class="gallery-credit">Photo: Jakob Owens / Unsplash</small></figcaption>
+                        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=900&q=80" alt="Jeunes mariés marchant ensemble dans un champ" loading="lazy" decoding="async">
+                        <figcaption><span data-i18n="gallery-caption-4">Main dans la main</span></figcaption>
                     </figure>
                 </div>
             </div>
@@ -1154,10 +1143,10 @@
             <div class="container">
                 <div class="section-title"><h2 data-i18n="faq-title"><i class="fas fa-question-circle" style="color: var(--gold); margin-right: 12px;"></i> questions fr&eacute;quentes</h2></div>
                 <div class="faq-list">
-                    <details><summary data-i18n="faq-place-question">O&ugrave; se d&eacute;roule la c&eacute;r&eacute;monie ?</summary><p data-i18n="faq-place-answer">Au Jardin des Oliviers. Remplacez ce lieu d'exemple et ajoutez l'adresse compl&egrave;te avant publication.</p></details>
-                    <details><summary data-i18n="faq-time-question">&Agrave; quelle heure faut-il arriver ?</summary><p data-i18n="faq-time-answer">La c&eacute;r&eacute;monie commence &agrave; 16 h. Indiquez ici l'heure d'accueil si les invit&eacute;s doivent arriver plus t&ocirc;t.</p></details>
+                    <details><summary data-i18n="faq-place-question">O&ugrave; se d&eacute;roule la c&eacute;r&eacute;monie ?</summary><p data-i18n="faq-place-answer">L'adresse compl&egrave;te et l'itin&eacute;raire sont indiqu&eacute;s sur votre invitation.</p></details>
+                    <details><summary data-i18n="faq-time-question">&Agrave; quelle heure faut-il arriver ?</summary><p data-i18n="faq-time-answer">La c&eacute;r&eacute;monie commence &agrave; 16 h. L'heure d'accueil est indiqu&eacute;e sur votre invitation.</p></details>
                     <details><summary data-i18n="faq-rsvp-question">Comment confirmer ma pr&eacute;sence ?</summary><p data-i18n="faq-rsvp-answer">Utilisez le formulaire RSVP et r&eacute;pondez avant la date limite indiqu&eacute;e sur votre invitation.</p></details>
-                    <details><summary data-i18n="faq-contact-question">Comment poser une autre question ?</summary><p data-i18n="faq-contact-answer">L'adresse de contact du template est un exemple. Remplacez-la par l'adresse des organisateurs avant publication.</p></details>
+                    <details><summary data-i18n="faq-contact-question">Comment poser une autre question ?</summary><p data-i18n="faq-contact-answer">Pour toute autre question, contactez les mari&eacute;s aux coordonn&eacute;es indiqu&eacute;es sur votre invitation.</p></details>
                 </div>
             </div>
         </section>
@@ -1179,7 +1168,7 @@
             </div>
         </section>
 
-        <!-- RSVP: l'adresse example.com est une valeur d'exemple &agrave; remplacer. -->
+        <!-- RSVP -->
         <section class="rsvp-section" id="rsvp">
             <div class="container">
                 <div class="section-title"><h2 data-i18n="rsvp-title"><i class="fas fa-envelope-open-text" style="color: var(--gold); margin-right: 12px;"></i> confirmer votre pr&eacute;sence</h2></div>
@@ -1192,7 +1181,7 @@
                             <label class="form-field form-field-full" for="rsvpDiet"><span data-i18n="rsvp-diet-label">Allergies ou pr&eacute;f&eacute;rences alimentaires (facultatif)</span><textarea id="rsvpDiet" name="diet"></textarea></label>
                         </div>
                         <button class="btn rsvp-submit" type="submit" data-i18n="rsvp-submit"><i class="fas fa-paper-plane"></i> Pr&eacute;parer ma r&eacute;ponse par e-mail</button>
-                        <p class="form-note" data-i18n="rsvp-note">Ce formulaire pr&eacute;pare un e-mail vers khalil.lyanna@example.com. Remplacez cette adresse dans le code du template. Votre application e-mail s'ouvrira : vous devrez appuyer sur Envoyer pour transmettre la r&eacute;ponse.</p>
+                        <p class="form-note" data-i18n="rsvp-note">Merci de confirmer votre pr&eacute;sence en remplissant le formulaire, puis en cliquant sur le bouton ci-dessus. Un e-mail pr&eacute;rempli s'ouvrira ; envoyez-le pour valider votre r&eacute;ponse.</p>
                         <p class="form-status" id="rsvpStatus" role="status" aria-live="polite" hidden></p>
                     </form>
                 </div>
@@ -1347,22 +1336,22 @@
                     'agenda-title': 'programme',
                     'info-title': 'informations pratiques',
                     'info-date-title': 'La date',
-                    'info-arrival-placeholder': 'Heure d'arrivée à préciser',
+                    'info-arrival-placeholder': "Horaire d'accueil indiqué sur votre invitation",
                     'info-place-title': 'Le lieu',
-                    'info-address-placeholder': 'Ville et adresse \u00E0 personnaliser',
-                    'info-map-link': 'Voir le lieu sur Maps (lien \u00E0 personnaliser)',
+                    'info-address-placeholder': "Adresse complète communiquée sur votre invitation",
+                    'info-map-link': "Ouvrir l'itinéraire",
                     'info-dress-title': 'Tenue',
-                    'info-dress-text': 'Consigne vestimentaire à personnaliser',
-                    'info-template-note': "Modifiez le nom du lieu, l'adresse et le lien Maps avant de partager ce template.",
+                    'info-dress-text': "Tenue de cérémonie élégante",
+                    'info-template-note': "Pour toute question sur l'accès, utilisez les coordonnées figurant sur votre invitation.",
                     'faq-title': 'questions fr\u00E9quentes',
                     'faq-place-question': 'O\u00F9 se d\u00E9roule la c\u00E9r\u00E9monie ?',
-                    'faq-place-answer': "Au Jardin des Oliviers. Remplacez ce lieu exemple et ajoutez l'adresse compl\u00E8te avant publication.",
+                    'faq-place-answer': "L'adresse complète et l'itinéraire sont indiqués sur votre invitation.",
                     'faq-time-question': '\u00C0 quelle heure faut-il arriver ?',
-                    'faq-time-answer': 'La cérémonie commence à 16 h. Indiquez l'heure d'accueil si les invités doivent arriver plus tôt.',
+                    'faq-time-answer': "La cérémonie commence à 16 h. L'heure d'accueil est indiquée sur votre invitation.",
                     'faq-rsvp-question': 'Comment confirmer ma pr\u00E9sence ?',
                     'faq-rsvp-answer': 'Utilisez le formulaire RSVP et r\u00E9pondez avant la date limite indiqu\u00E9e sur votre invitation.',
                     'faq-contact-question': 'Comment poser une autre question ?',
-                    'faq-contact-answer': "L'adresse de contact est un exemple. Remplacez-la par celle des organisateurs avant publication.",
+                    'faq-contact-answer': "Pour toute autre question, contactez les mariés aux coordonnées indiquées sur votre invitation.",
                     'rsvp-title': 'confirmer votre pr\u00E9sence',
                     'rsvp-name-label': 'Votre nom',
                     'rsvp-attendance-label': 'Votre r\u00E9ponse',
@@ -1371,7 +1360,7 @@
                     'rsvp-guests-label': 'Nombre de personnes',
                     'rsvp-diet-label': 'Allergies ou pr\u00E9f\u00E9rences alimentaires (facultatif)',
                     'rsvp-submit': 'Pr\u00E9parer ma r\u00E9ponse par e-mail',
-                    'rsvp-note': "Ce formulaire pr\u00E9pare un e-mail vers khalil.lyanna@example.com. Remplacez cette adresse dans le code du template. Votre application e-mail s'ouvrira : vous devrez appuyer sur Envoyer.",
+                    'rsvp-note': "Merci de confirmer votre présence en remplissant le formulaire, puis en cliquant sur le bouton ci-dessus. Un e-mail prérempli s'ouvrira ; envoyez-le pour valider votre réponse.",
                     'rsvp-sent': "Votre application e-mail devrait s'ouvrir avec la r\u00E9ponse pr\u00E9par\u00E9e. Appuyez sur Envoyer pour la transmettre.",
                     'guestbook-note': "Le bouton pr\u00E9pare un e-mail. Votre application de messagerie s'ouvrira ; appuyez sur Envoyer pour transmettre le message.",
                     'confirm-msg': "Si votre application e-mail s'ouvre, appuyez sur Envoyer pour transmettre le message.",
@@ -1400,22 +1389,22 @@
                     'agenda-title': 'schedule',
                     'info-title': 'practical information',
                     'info-date-title': 'La date',
-                    'info-arrival-placeholder': 'Arrival time to be confirmed',
+                    'info-arrival-placeholder': "Arrival time listed on your invitation",
                     'info-place-title': 'The venue',
-                    'info-address-placeholder': 'City and address to customize',
-                    'info-map-link': 'Open Maps (customize this link)',
+                    'info-address-placeholder': "Full address listed on your invitation",
+                    'info-map-link': "Open directions",
                     'info-dress-title': 'Dress code',
-                    'info-dress-text': 'Dress code to customize',
-                    'info-template-note': 'Update the venue name, address and Maps link before sharing this template.',
+                    'info-dress-text': "Elegant wedding attire",
+                    'info-template-note': "For directions or other details, contact the couple using the information on your invitation.",
                     'faq-title': 'frequently asked questions',
                     'faq-place-question': 'Where is the ceremony?',
-                    'faq-place-answer': 'At Jardin des Oliviers. Replace this example venue and add the full address before publishing.',
+                    'faq-place-answer': "The full address and directions are listed on your invitation.",
                     'faq-time-question': 'What time should I arrive?',
-                    'faq-time-answer': 'The ceremony starts at 4 p.m. Add an arrival time if guests should come earlier.',
+                    'faq-time-answer': "The ceremony begins at 4 p.m. Arrival time is listed on your invitation.",
                     'faq-rsvp-question': 'How do I RSVP?',
                     'faq-rsvp-answer': 'Use the RSVP form and reply by the deadline shown on your invitation.',
                     'faq-contact-question': 'How can I ask another question?',
-                    'faq-contact-answer': 'The contact address is an example. Replace it with the organizers address before publishing.',
+                    'faq-contact-answer': "For any other questions, contact the couple using the information on your invitation.",
                     'rsvp-title': 'confirm your attendance',
                     'rsvp-name-label': 'Your name',
                     'rsvp-attendance-label': 'Your response',
@@ -1424,7 +1413,7 @@
                     'rsvp-guests-label': 'Number of guests',
                     'rsvp-diet-label': 'Allergies or dietary preferences (optional)',
                     'rsvp-submit': 'Prepare my reply by email',
-                    'rsvp-note': 'This form prepares an email to khalil.lyanna@example.com. Replace this address in the template code. Your email app opens; press Send to submit.',
+                    'rsvp-note': "To confirm your attendance, complete this form and click the button above. A prefilled email will open; send it to confirm your reply.",
                     'rsvp-sent': 'Your email app should open with the reply prepared. Press Send to submit it.',
                     'guestbook-note': 'This button prepares an email. Your mail app opens; press Send to transmit the message.',
                     'confirm-msg': 'If your email app opens, press Send to transmit the message.',
