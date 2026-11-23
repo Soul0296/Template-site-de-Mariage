@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
-    <title>Khalil & Lyanna · 22.08.26</title>
+    <title>Khalil & Lyanna · 23.05.27</title>
     <!-- Google Font : Playfair Display + Quicksand -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -324,6 +324,7 @@
 
         .countdown-section,
         .agenda-section,
+        .gallery-section,
         .story-section,
         .guestbook-section {
             background: rgba(248, 250, 255, 0.92);
@@ -333,8 +334,9 @@
         /* Ordre des z-index pour la superposition */
         .countdown-section { z-index: 2; }
         .agenda-section { z-index: 3; }
-        .story-section { z-index: 4; }
-        .guestbook-section { z-index: 5; }
+        .gallery-section { z-index: 4; }
+        .story-section { z-index: 5; }
+        .guestbook-section { z-index: 6; }
 
         /* ----- SECTIONS AVEC BLEU MARIN ET REFLETS ----- */
         .countdown-section {
@@ -547,6 +549,40 @@
 
         .agenda-image:hover img {
             transform: scale(1.03);
+        }
+
+        /* ----- GALERIE ----- */
+        .gallery-section {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(201, 168, 124, 0.08), rgba(248, 250, 255, 0.96) 55%, rgba(212, 160, 160, 0.08));
+        }
+        .gallery-section .container { position: relative; z-index: 1; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+        .gallery-card {
+            position: relative; min-width: 0; aspect-ratio: 4 / 5; overflow: hidden;
+            border: 1px solid rgba(201, 168, 124, 0.28); border-radius: 28px;
+            background: var(--champagne); box-shadow: 0 12px 34px rgba(26, 42, 74, 0.1);
+        }
+        .gallery-photo-link, .gallery-card img { display: block; width: 100%; height: 100%; }
+        .gallery-card img { object-fit: cover; transition: transform 0.65s ease; }
+        .gallery-card::after {
+            content: ''; position: absolute; inset: 35% 0 0;
+            background: linear-gradient(transparent, rgba(15, 40, 71, 0.74)); pointer-events: none;
+        }
+        .gallery-card figcaption {
+            position: absolute; z-index: 1; right: 18px; bottom: 18px; left: 18px; color: #fff;
+            font-family: 'Playfair Display', serif; font-size: 1.08rem; font-style: italic;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
+        .gallery-credit { display: block; margin-top: 4px; font: 400 0.65rem/1.3 'Quicksand', sans-serif; letter-spacing: 0.04em; opacity: 0.82; }
+        .gallery-card:hover img, .gallery-photo-link:focus-visible img { transform: scale(1.06); }
+        .gallery-photo-link:focus-visible { outline: 3px solid var(--gold); outline-offset: -5px; }
+        @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 480px) {
+            .gallery-grid { gap: 12px; }
+            .gallery-card { border-radius: 20px; }
+            .gallery-card figcaption { right: 12px; bottom: 12px; left: 12px; font-size: 0.9rem; }
         }
 
         /* ----- STORY - photo en fond, texte par-dessus ----- */
@@ -967,6 +1003,7 @@
     <nav class="navbar" id="navbar">
         <a href="#hero" class="nav-btn active"><i class="fas fa-home"></i> Accueil</a>
         <a href="#agenda" class="nav-btn"><i class="fas fa-calendar-check"></i> Programme</a>
+        <a href="#gallery" class="nav-btn"><i class="fas fa-images"></i> Galerie</a>
         <a href="#story" class="nav-btn"><i class="fas fa-feather-alt"></i> Notre rencontre</a>
         <a href="#guestbook" class="nav-btn"><i class="fas fa-book-open"></i> Livre d'or</a>
         <div class="lang-switch">
@@ -983,7 +1020,7 @@
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
                     <h1>Khalil & Lyanna</h1>
-                    <div class="sub">22.08.26</div>
+                    <div class="sub">23.05.27</div>
                 </div>
             </div>
         </div>
@@ -1025,6 +1062,41 @@
             </div>
         </section>
 
+        <!-- GALERIE -->
+        <section class="gallery-section" id="gallery">
+            <div class="container">
+                <div class="section-title">
+                    <h2 data-i18n="gallery-title"><i class="fas fa-images" style="color: var(--gold); margin-right: 12px;"></i> quelques instants à deux</h2>
+                </div>
+                <div class="gallery-grid">
+                    <figure class="gallery-card">
+                        <a class="gallery-photo-link" href="https://unsplash.com/photos/a-man-and-woman-posing-for-a-picture-jcPvftDvmGs" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la photo du couple">
+                            <img src="https://images.unsplash.com/photo-1664645573886-7eb81dbcf7e5?auto=format&fit=crop&w=900&q=80" alt="Couple noir en tenue de mariage, portrait romantique" loading="lazy" decoding="async">
+                        </a>
+                        <figcaption><span data-i18n="gallery-caption-1">Un regard complice</span><small class="gallery-credit">Photo: Christophe Dusabe / Unsplash</small></figcaption>
+                    </figure>
+                    <figure class="gallery-card">
+                        <a class="gallery-photo-link" href="https://unsplash.com/photos/a-bride-and-groom-kissing-in-front-of-a-white-wall-jbvd1Vi6jwU" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la photo du baiser des mariés">
+                            <img src="https://images.unsplash.com/photo-1719499683843-721331f2495f?auto=format&fit=crop&w=900&q=80" alt="Mari?s noirs partageant un baiser" loading="lazy" decoding="async">
+                        </a>
+                        <figcaption><span data-i18n="gallery-caption-2">Le premier baiser</span><small class="gallery-credit">Photo: Stacey Vandas / Unsplash</small></figcaption>
+                    </figure>
+                    <figure class="gallery-card">
+                        <a class="gallery-photo-link" href="https://unsplash.com/photos/a-black-and-white-photo-of-a-bride-and-groom-7Oq5mU8s7Rk" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le portrait des mariés">
+                            <img src="https://images.unsplash.com/photo-1739526169460-198129c6105b?auto=format&fit=crop&w=900&q=80" alt="Portrait de mariés nigérians" loading="lazy" decoding="async">
+                        </a>
+                        <figcaption><span data-i18n="gallery-caption-3">Un amour intemporel</span><small class="gallery-credit">Photo: Chidy Young / Unsplash</small></figcaption>
+                    </figure>
+                    <figure class="gallery-card">
+                        <a class="gallery-photo-link" href="https://unsplash.com/photos/a-newly-married-couple-walking-through-a-field-SiniLJkXhMc" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la photo des mariés dans un champ">
+                            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=900&q=80" alt="Jeunes mariés marchant ensemble dans un champ" loading="lazy" decoding="async">
+                        </a>
+                        <figcaption><span data-i18n="gallery-caption-4">Main dans la main</span><small class="gallery-credit">Photo: Jakob Owens / Unsplash</small></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
         <!-- STORY -->
         <section class="story-section" id="story">
             <img class="story-bg" src="https://images.pexels.com/photos/33005349/pexels-photo-33005349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Rencontre romantique">
@@ -1034,7 +1106,7 @@
                     <h2 data-i18n="story-title"><i class="fas fa-feather-alt" style="color: var(--gold); margin-right: 12px;"></i> notre rencontre</h2>
                 </div>
                 <div class="story-card-overlay">
-                    <p data-i18n="story-text">“Un matin de printemps, sous les fleurs de cerisier, nos regards se sont croisés. Depuis, chaque saison a été une promesse. Le 22 août 2026, nous écrirons le premier chapitre de notre éternité.”</p>
+                    <p data-i18n="story-text">“Un matin de printemps, sous les fleurs de cerisier, nos regards se sont croisés. Depuis, chaque saison a été une promesse. Le 23 mai 2027, nous écrirons le premier chapitre de notre éternité.”</p>
                     <div class="ring-icon-big">
                         <i class="fas fa-ring"></i> <i class="fas fa-heart" style="color: var(--rose);"></i> <i class="fas fa-ring"></i>
                     </div>
@@ -1068,7 +1140,7 @@
                 <i class="fas fa-ring"></i> <i class="fas fa-ring"></i> <i class="fas fa-ring"></i>
             </div>
             <div class="footer-names">Khalil & Lyanna</div>
-            <div class="footer-date">22.08.26</div>
+            <div class="footer-date">23.05.27</div>
             <div class="footer-copy">
                 <i class="fas fa-copyright"></i> 2026 — Tous droits réservés
             </div>
@@ -1078,7 +1150,7 @@
     <script>
         (function() {
             // COUNTDOWN
-            const weddingDate = new Date('2026-08-22T00:00:00').getTime();
+            const weddingDate = new Date('2027-05-23T00:00:00').getTime();
 
             function updateCountdown() {
                 const now = new Date().getTime();
@@ -1113,7 +1185,7 @@
 
                 const subject = encodeURIComponent('Message Livre d\'or - Khalil & Lyanna');
                 const body = encodeURIComponent(
-                    `Message de : Invité·e\n\n${text}\n\n---\nMessage envoyé depuis le site de mariage Khalil & Lyanna - 22.08.26`
+                    `Message de : Invité·e\n\n${text}\n\n---\nMessage envoyé depuis le site de mariage Khalil & Lyanna - 23.05.27`
                 );
                 window.location.href =
                     `mailto:khalil.lyanna@example.com?subject=${subject}&body=${body}`;
@@ -1170,13 +1242,18 @@
                     'minutes': 'minutes',
                     'seconds': 'secondes',
                     'agenda-title': 'programme',
+                    'gallery-title': 'quelques instants à deux',
+                    'gallery-caption-1': 'Un regard complice',
+                    'gallery-caption-2': 'Le premier baiser',
+                    'gallery-caption-3': 'Un amour intemporel',
+                    'gallery-caption-4': 'Main dans la main',
                     'agenda1': 'Cérémonie · Jardin des Oliviers',
                     'agenda2': 'Vin d\'honneur & photos',
                     'agenda3': 'Dîner & danses',
                     'agenda4': 'Pièce montée & surprises',
                     'agenda5': 'After · jusqu\'à l\'aube',
                     'story-title': 'notre rencontre',
-                    'story-text': '“Un matin de printemps, sous les fleurs de cerisier, nos regards se sont croisés. Depuis, chaque saison a été une promesse. Le 22 août 2026, nous écrirons le premier chapitre de notre éternité.”',
+                    'story-text': '“Un matin de printemps, sous les fleurs de cerisier, nos regards se sont croisés. Depuis, chaque saison a été une promesse. Le 23 mai 2027, nous écrirons le premier chapitre de notre éternité.”',
                     'guestbook-title': 'livre d\'or',
                     'guest-placeholder': 'Laissez un petit mot pour Khalil & Lyanna …',
                     'send-btn': 'envoyer',
@@ -1189,13 +1266,18 @@
                     'minutes': 'minutes',
                     'seconds': 'seconds',
                     'agenda-title': 'schedule',
+                    'gallery-title': 'moments together',
+                    'gallery-caption-1': 'A knowing glance',
+                    'gallery-caption-2': 'The first kiss',
+                    'gallery-caption-3': 'A timeless love',
+                    'gallery-caption-4': 'Hand in hand',
                     'agenda1': 'Ceremony · Olive Garden',
                     'agenda2': 'Welcome drink & photos',
                     'agenda3': 'Dinner & dancing',
                     'agenda4': 'Wedding cake & surprises',
                     'agenda5': 'After party · until dawn',
                     'story-title': 'our story',
-                    'story-text': '“One spring morning, under the cherry blossoms, our eyes met. Since then, every season has been a promise. On August 22, 2026, we will write the first chapter of our eternity.”',
+                    'story-text': '“One spring morning, under the cherry blossoms, our eyes met. Since then, every season has been a promise. On May 23, 2027, we will write the first chapter of our eternity.”',
                     'guestbook-title': 'guestbook',
                     'guest-placeholder': 'Leave a message for Khalil & Lyanna …',
                     'send-btn': 'send',
