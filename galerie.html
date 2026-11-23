@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a2a4a">
+    <title>Galerie de mariage | Khalil &amp; Lyanna</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="wedding.css">
+</head>
+<body class="gallery-page">
+    <nav class="navbar" aria-label="Navigation principale">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Ouvrir le menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html#hero" class="nav-btn"><i class="fas fa-home"></i> <span data-i18n="nav-home">Accueil</span></a>
+            <a href="index.html#agenda" class="nav-btn"><i class="fas fa-calendar-check"></i> <span data-i18n="nav-schedule">Programme</span></a>
+            <a href="#photos" class="nav-btn active"><i class="fas fa-images"></i> <span data-i18n="nav-gallery">Galerie</span></a>
+            <a href="#add-photos" class="nav-btn"><i class="fas fa-camera"></i> <span data-i18n="nav-contribute">Ajouter des photos</span></a>
+            <a href="index.html#rsvp" class="nav-btn"><i class="fas fa-envelope-open-text"></i> RSVP</a>
+        </div>
+        <div class="lang-switch">
+            <button class="active" data-lang="fr" id="langFr" type="button">FR</button>
+            <button data-lang="en" id="langEn" type="button">EN</button>
+        </div>
+    </nav>
+
+    <main class="gallery-page-main" id="photos">
+        <div class="container">
+            <a class="gallery-back-link" href="index.html"><i class="fas fa-arrow-left" aria-hidden="true"></i> <span data-i18n="back-home">Retour au site</span></a>
+            <div class="section-title">
+                <h1 data-i18n="page-title">Les photos du mariage</h1>
+                <div class="gold-divider"></div>
+            </div>
+            <div class="gallery-page-intro">
+                <p data-i18n="page-intro">Quelques beaux instants d'amour, de c&eacute;l&eacute;bration et de partage.</p>
+                <p data-i18n="page-open-help">Touchez ou cliquez sur une photo pour l'ouvrir en grand.</p>
+            </div>
+
+            <div class="all-photos-grid">
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1664645573886-7eb81dbcf7e5?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1664645573886-7eb81dbcf7e5?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Portrait romantique de mari&eacute;s dans un jardin" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-1">Un regard complice</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1719499683843-721331f2495f?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1719499683843-721331f2495f?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Les mari&eacute;s &eacute;changent un baiser" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-2">Le premier baiser</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1739526169460-198129c6105b?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1739526169460-198129c6105b?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Portrait de mari&eacute;s" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-3">Un amour intemporel</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Des mari&eacute;s marchent ensemble dans un champ" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-4">Main dans la main</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1660528682209-cf7d403c2613?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1660528682209-cf7d403c2613?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Les mari&eacute;s dansent pendant la r&eacute;ception" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-5">La premi&egrave;re danse</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1664645833817-7581189209a2?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1664645833817-7581189209a2?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Un couple c&eacute;l&egrave;bre son mariage dans un jardin" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-6">Joie partag&eacute;e</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1551963474-cc9e699de3b4?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1551963474-cc9e699de3b4?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Un couple de mari&eacute;s pose dans un jardin fleuri" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-7">Un instant pr&eacute;cieux</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1780291455505-5e42a4c6295d?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1780291455505-5e42a4c6295d?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Les mari&eacute;s posent dans un jardin" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-8">Un jour inoubliable</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1708127852170-ef3dab2b2d10?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1708127852170-ef3dab2b2d10?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Les mari&eacute;s partagent un moment tendre" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-9">Tendresse</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1768611264108-d495d9bb1f8d?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1768611264108-d495d9bb1f8d?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Un mariage au bord de la mer au coucher du soleil" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-10">Au bord de la mer</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1780291260492-adc9022bb738?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1780291260492-adc9022bb738?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Un couple c&eacute;l&egrave;bre son mariage sous les lumi&egrave;res" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-11">Sous les lumi&egrave;res</figcaption></figure>
+                <figure class="all-photo-card"><a class="all-photo-link" href="https://images.unsplash.com/photo-1707193393509-19e598406229?auto=format&amp;fit=crop&amp;w=2000&amp;q=85"><img src="https://images.unsplash.com/photo-1707193393509-19e598406229?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Un portrait de mari&eacute;s" loading="lazy" decoding="async"><span class="all-photo-hint"><i class="fas fa-expand-alt" aria-hidden="true"></i></span></a><figcaption data-i18n="caption-12">Le grand jour</figcaption></figure>
+            </div>
+
+            <section class="photo-contribution" id="add-photos">
+                <div class="section-title">
+                    <h2 data-i18n="contribute-title"><i class="fas fa-camera" style="color: var(--gold); margin-right: 12px;"></i> Partagez vos photos</h2>
+                    <p class="gallery-page-intro" data-i18n="contribute-intro">Vous avez pris des photos pendant le mariage ? Envoyez-les au couple pour qu'elles puissent rejoindre cet album.</p>
+                </div>
+                <div class="photo-workflow">
+                    <article><i class="fas fa-images" aria-hidden="true"></i><h3 data-i18n="step-one-title">1. Choisissez</h3><p data-i18n="step-one-text">S&eacute;lectionnez vos plus beaux clich&eacute;s et indiquez votre nom.</p></article>
+                    <article><i class="fas fa-user-check" aria-hidden="true"></i><h3 data-i18n="step-two-title">2. Le couple v&eacute;rifie</h3><p data-i18n="step-two-text">Les mari&eacute;s examinent chaque photo avant de d&eacute;cider si elle sera publi&eacute;e.</p></article>
+                    <article><i class="fas fa-heart" aria-hidden="true"></i><h3 data-i18n="step-three-title">3. Les photos valid&eacute;es apparaissent ici</h3><p data-i18n="step-three-text">Aucune photo envoy&eacute;e n'est ajout&eacute;e automatiquement &agrave; la galerie.</p></article>
+                </div>
+                <div class="photo-upload-box">
+                    <form class="photo-upload-form" id="photoUploadForm">
+                        <label for="guestName"><span data-i18n="guest-name-label">Votre nom</span><input id="guestName" name="guestName" type="text" autocomplete="name" required></label>
+                        <label class="photo-drop-label" for="photoFiles"><i class="fas fa-cloud-upload-alt" aria-hidden="true"></i><span data-i18n="choose-photos">Choisir des photos</span><small data-i18n="file-limit">Jusqu'&agrave; 10 photos, 12 Mo par photo et 24 Mo au total.</small></label>
+                        <input id="photoFiles" name="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple required aria-describedby="file-limit-text">
+                        <span id="file-limit-text" class="template-note" data-i18n="share-instructions">Sur certains t&eacute;l&eacute;phones, les photos seront jointes &agrave; votre partage. Sinon, votre messagerie s'ouvrira : ajoutez les fichiers en pi&egrave;ces jointes avant d'envoyer.</span>
+                        <label class="photo-consent" for="photoConsent"><input id="photoConsent" name="consent" type="checkbox" required><span data-i18n="photo-consent">Je confirme avoir l'autorisation de partager ces photos et j'accepte que le couple publie celles qu'il valide.</span></label>
+                        <div class="photo-previews" id="photoPreviews" aria-live="polite"></div>
+                        <button class="btn" type="submit" data-i18n="send-photos"><i class="fas fa-paper-plane"></i> Envoyer pour validation</button>
+                        <p class="photo-upload-status" id="photoUploadStatus" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+                <p class="template-note" data-i18n="review-reminder">Les photos ne sont visibles par tous qu'apr&egrave;s validation et ajout &agrave; l'album par les mari&eacute;s.</p>
+            </section>
+        </div>
+    </main>
+
+    <dialog class="photo-dialog" id="photoDialog" aria-label="Agrandissement de la photo">
+        <button class="photo-dialog-close" type="button" aria-label="Fermer la photo"><i class="fas fa-times" aria-hidden="true"></i></button>
+        <figure><img id="dialogImage" src="" alt=""><figcaption id="dialogCaption"></figcaption></figure>
+    </dialog>
+
+    <footer class="footer">
+        <div class="footer-content"><div class="footer-ring"><i class="fas fa-ring"></i> <i class="fas fa-ring"></i> <i class="fas fa-ring"></i></div><div class="footer-names">Khalil &amp; Lyanna</div><div class="footer-date">23.05.27</div><div class="footer-copy" data-i18n="footer-copy"><i class="fas fa-copyright"></i> 2026 - Tous droits r&eacute;serv&eacute;s</div></div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', function() {
+            const open = navLinks.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(open));
+            menuToggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        });
+        navLinks.addEventListener('click', function(event) {
+            if (event.target.closest('.nav-btn')) {
+                navLinks.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        const photoDialog = document.getElementById('photoDialog');
+        const dialogImage = document.getElementById('dialogImage');
+        const dialogCaption = document.getElementById('dialogCaption');
+        document.querySelectorAll('.all-photo-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                if (!photoDialog.showModal) return;
+                event.preventDefault();
+                const image = link.querySelector('img');
+                dialogImage.src = link.href;
+                dialogImage.alt = image.alt;
+                dialogCaption.textContent = link.closest('figure').querySelector('figcaption').textContent;
+                photoDialog.showModal();
+            });
+        });
+        photoDialog.querySelector('.photo-dialog-close').addEventListener('click', () => photoDialog.close());
+        photoDialog.addEventListener('click', event => { if (event.target === photoDialog) photoDialog.close(); });
+
+        const photoForm = document.getElementById('photoUploadForm');
+        const photoInput = document.getElementById('photoFiles');
+        const previewGrid = document.getElementById('photoPreviews');
+        const photoStatus = document.getElementById('photoUploadStatus');
+        const maxPhotos = 10;
+        const maxFileSize = 12 * 1024 * 1024;
+        const maxTotalSize = 24 * 1024 * 1024;
+        let previewUrls = [];
+        photoInput.addEventListener('change', function() {
+            previewUrls.forEach(URL.revokeObjectURL);
+            previewUrls = [];
+            previewGrid.replaceChildren();
+            const files = Array.from(photoInput.files || []);
+            if (files.length > maxPhotos) {
+                photoStatus.textContent = 'Selectionnez 10 photos maximum.';
+                photoInput.value = '';
+                return;
+            }
+            const invalid = files.find(file => !['image/jpeg','image/png','image/webp'].includes(file.type) || file.size > maxFileSize);
+            if (files.reduce((total, file) => total + file.size, 0) > maxTotalSize) {
+                photoStatus.textContent = 'La taille totale des photos ne doit pas depasser 24 Mo.';
+                photoInput.value = '';
+                return;
+            }
+            if (invalid) {
+                photoStatus.textContent = 'Chaque fichier doit etre une image JPG, PNG ou WEBP de 12 Mo maximum.';
+                photoInput.value = '';
+                return;
+            }
+            files.forEach(file => {
+                const url = URL.createObjectURL(file);
+                previewUrls.push(url);
+                const image = document.createElement('img');
+                image.src = url;
+                image.alt = file.name;
+                previewGrid.appendChild(image);
+            });
+            photoStatus.textContent = files.length ? files.length + ' photo(s) prete(s) a envoyer.' : '';
+        });
+        photoForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const files = Array.from(photoInput.files || []);
+            if (!files.length) return;
+            const guestName = document.getElementById('guestName').value.trim();
+            const intro = 'Photos du mariage envoyees par ' + guestName + '. Merci de les examiner avant toute publication.';
+            if (navigator.share && navigator.canShare && navigator.canShare({ files })) {
+                try {
+                    await navigator.share({ title: 'Photos du mariage', text: intro, files });
+                    photoStatus.textContent = 'Votre partage est ouvert. Envoyez les photos au couple pour validation.';
+                    return;
+                } catch (error) {
+                    if (error.name === 'AbortError') {
+                        photoStatus.textContent = 'Le partage a ete annule. Vous pouvez recommencer quand vous le souhaitez.';
+                        return;
+                    }
+                }
+            }
+            const subject = encodeURIComponent('Photos du mariage - ' + guestName);
+            const lineBreak = String.fromCharCode(10);
+            const body = encodeURIComponent(intro + lineBreak + files.map(file => file.name).join(lineBreak) + lineBreak + lineBreak + 'Ajoutez les photos en pieces jointes avant envoi.');
+            photoStatus.textContent = "Votre messagerie va s'ouvrir. Ajoutez les fichiers en pieces jointes et envoyez le message au couple pour validation.";
+            window.location.href = 'mailto:khalil.lyanna@example.com?subject=' + subject + '&body=' + body;
+        });
+
+        const e = String.fromCharCode(233), eg = String.fromCharCode(232), a = String.fromCharCode(224), u = String.fromCharCode(249);
+        const galleryTranslations = {
+            fr: {
+                'nav-home':"Accueil",'nav-schedule':"Programme",'nav-gallery':"Galerie",'nav-contribute':"Ajouter des photos",'back-home':"Retour au site",
+                'page-title':"Les photos du mariage",'page-intro':"Quelques beaux instants d'amour, de partage et de c"+e+"l"+e+"bration.",'page-open-help':"Touchez ou cliquez sur une photo pour l'ouvrir en grand.",
+                'caption-1':"Un regard complice",'caption-2':"Le premier baiser",'caption-3':"Un amour intemporel",'caption-4':"Main dans la main",'caption-5':"La premi"+e+"re danse",'caption-6':"Joie partag"+e+"e",'caption-7':"Un instant pr"+e+"cieux",'caption-8':"Un jour inoubliable",'caption-9':"Tendresse",'caption-10':"Au bord de la mer",'caption-11':"Sous les lumi"+e+"res",'caption-12':"Le grand jour",
+                'contribute-title':"Partagez vos photos",'contribute-intro':"Vous avez pris des photos pendant le mariage ? Envoyez-les au couple pour qu'elles puissent rejoindre cet album.",
+                'step-one-title':"1. Choisissez",'step-one-text':"S"+e+"lectionnez vos plus beaux clich"+e+"s et indiquez votre nom.",'step-two-title':"2. Le couple v"+e+"rifie",'step-two-text':"Les mari"+e+"s examinent chaque photo avant de d"+e+"cider si elle sera publi"+e+"e.",'step-three-title':"3. Les photos valid"+e+"es apparaissent ici",'step-three-text':"Aucune photo envoy"+e+"e n'est ajout"+e+"e automatiquement "+a+" la galerie.",
+                'file-limit':"Jusqu'à 10 photos, 12 Mo par photo et 24 Mo au total.",
+                'footer-copy':String.fromCharCode(169)+" 2026 - Tous droits r"+e+"serv"+e+"s"
+            },
+            en: {
+                'nav-home':"Home",'nav-schedule':"Schedule",'nav-gallery':"Gallery",'nav-contribute':"Share photos",'back-home':"Back to the website",
+                'page-title':"Wedding photos",'page-intro':"A collection of moments filled with love, celebration and joy.",'page-open-help':"Tap or click a photo to view it larger.",
+                'caption-1':"A knowing glance",'caption-2':"The first kiss",'caption-3':"A timeless love",'caption-4':"Hand in hand",'caption-5':"The first dance",'caption-6':"Shared joy",'caption-7':"A precious moment",'caption-8':"An unforgettable day",'caption-9':"Tenderness",'caption-10':"By the sea",'caption-11':"Under the lights",'caption-12':"The big day",
+                'contribute-title':"Share your photos",'contribute-intro':"Took photos at the wedding? Send them to the couple to be considered for this album.",
+                'step-one-title':"1. Choose",'step-one-text':"Select your favorite photos and enter your name.",'step-two-title':"2. Couple review",'step-two-text':"The couple reviews every photo before deciding whether to publish it.",'step-three-title':"3. Approved photos appear here",'step-three-text':"Submitted photos are never added to the gallery automatically.",
+                'guest-name-label':"Your name",'choose-photos':"Choose photos",'file-limit':"Up to 10 photos, 12 MB each and 24 MB total.",'share-instructions':"On some phones, photos can be attached in the share sheet. Otherwise, your email app opens; attach the files before sending.",'photo-consent':"I confirm that I have permission to share these photos and agree that the couple may publish the ones they approve.",'send-photos':"Send for review",'review-reminder':"Photos become visible to everyone only after the couple approves and adds them to the album.",
+                'footer-copy':String.fromCharCode(169)+" 2026 - All rights reserved"
+            }
+        };
+        function setGalleryLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const value = galleryTranslations[lang][el.getAttribute('data-i18n')];
+                if (value === undefined) return;
+                if (el.querySelector('i')) el.innerHTML = el.querySelector('i').outerHTML + ' ' + value;
+                else el.textContent = value;
+            });
+            document.querySelectorAll('.lang-switch button').forEach(button => button.classList.toggle('active', button.dataset.lang === lang));
+        }
+        document.getElementById('langFr').addEventListener('click', () => setGalleryLanguage('fr'));
+        document.getElementById('langEn').addEventListener('click', () => setGalleryLanguage('en'));
+
+    </script>
+</body>
+</html>
