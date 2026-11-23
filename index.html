@@ -11,6 +11,12 @@
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="wedding.css">
+    <script>
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        window.addEventListener('load', function() {
+            if (!window.location.hash) window.scrollTo(0, 0);
+        }, { once: true });
+    </script>
 </head>
 <body>
 
@@ -525,7 +531,7 @@
                 const directions = ['from-left', 'from-top', 'from-right', 'from-bottom'];
                 photoCards.forEach((card, index) => {
                     card.classList.add('photo-reveal-ready', directions[index % directions.length]);
-                    card.style.setProperty('--photo-reveal-delay', (index % 4) * 75 + 'ms');
+                    card.style.setProperty('--photo-reveal-delay', (index % 4) * 110 + 'ms');
                 });
                 const photoObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {

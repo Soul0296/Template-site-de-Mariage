@@ -110,7 +110,7 @@
             const directions = ['from-left', 'from-top', 'from-right', 'from-bottom'];
             photoCards.forEach((card, index) => {
                 card.classList.add('photo-reveal-ready', directions[index % directions.length]);
-                card.style.setProperty('--photo-reveal-delay', (index % 4) * 75 + 'ms');
+                card.style.setProperty('--photo-reveal-delay', (index % 4) * 110 + 'ms');
             });
             const photoObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
