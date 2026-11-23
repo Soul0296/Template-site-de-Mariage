@@ -324,6 +324,9 @@
 
         .countdown-section,
         .agenda-section,
+        .info-section,
+        .faq-section,
+        .rsvp-section,
         .gallery-section,
         .story-section,
         .guestbook-section {
@@ -334,9 +337,12 @@
         /* Ordre des z-index pour la superposition */
         .countdown-section { z-index: 2; }
         .agenda-section { z-index: 3; }
-        .gallery-section { z-index: 4; }
-        .story-section { z-index: 5; }
-        .guestbook-section { z-index: 6; }
+        .info-section { z-index: 4; }
+        .gallery-section { z-index: 5; }
+        .story-section { z-index: 6; }
+        .faq-section { z-index: 7; }
+        .rsvp-section { z-index: 8; }
+        .guestbook-section { z-index: 9; }
 
         /* ----- SECTIONS AVEC BLEU MARIN ET REFLETS ----- */
         .countdown-section {
@@ -550,6 +556,36 @@
         .agenda-image:hover img {
             transform: scale(1.03);
         }
+
+        /* ----- INFOS, FAQ ET RSVP ----- */
+        .info-section, .faq-section, .rsvp-section { position: relative; overflow: hidden; }
+        .info-section { background: linear-gradient(145deg, rgba(15, 40, 71, 0.04), rgba(248, 250, 255, 0.96)); }
+        .faq-section { background: linear-gradient(145deg, rgba(212, 160, 160, 0.08), rgba(248, 250, 255, 0.96)); }
+        .rsvp-section { background: linear-gradient(145deg, rgba(201, 168, 124, 0.1), rgba(248, 250, 255, 0.96)); }
+        .info-section .container, .faq-section .container, .rsvp-section .container { position: relative; z-index: 1; }
+        .info-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+        .info-card { padding: 30px 24px; text-align: center; border-radius: 28px; background: rgba(255,255,255,.68); border: 1px solid rgba(201,168,124,.2); box-shadow: 0 8px 28px rgba(26,42,74,.05); }
+        .info-card > i { color: var(--gold); font-size: 1.5rem; margin-bottom: 12px; }
+        .info-card h3 { color: var(--luxury-blue); font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 8px; }
+        .info-card p { color: var(--light-text); font-size: .9rem; }
+        .info-card a { display: inline-block; margin-top: 12px; color: var(--luxury-blue); text-decoration-color: var(--gold); text-underline-offset: 4px; }
+        .template-note { max-width: 760px; margin: 18px auto 0; color: var(--light-text); font-size: .82rem; text-align: center; }
+        .faq-list { max-width: 820px; margin: 0 auto; display: grid; gap: 12px; }
+        .faq-list details { padding: 18px 24px; border: 1px solid rgba(201,168,124,.2); border-radius: 22px; background: rgba(255,255,255,.68); color: var(--light-text); }
+        .faq-list summary { color: var(--luxury-blue); cursor: pointer; font-weight: 500; }
+        .faq-list details p { margin-top: 10px; font-size: .92rem; }
+        .rsvp-form { max-width: 760px; margin: 0 auto; }
+        .rsvp-fields { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+        .form-field { display: flex; flex-direction: column; gap: 7px; color: var(--luxury-blue); font-size: .88rem; font-weight: 500; }
+        .form-field-full { grid-column: 1 / -1; }
+        .form-field input, .form-field select, .form-field textarea { width: 100%; padding: 13px 16px; border: 1px solid rgba(201,168,124,.25); border-radius: 14px; background: rgba(255,255,255,.88); color: var(--dark-text); font: 400 .95rem 'Quicksand', sans-serif; }
+        .form-field textarea { min-height: 90px; resize: vertical; }
+        .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+        .rsvp-submit { margin-top: 20px; }
+        .form-note { margin-top: 16px; color: var(--light-text); font-size: .82rem; line-height: 1.6; }
+        .form-status { margin-top: 14px; color: var(--luxury-blue); font-size: .9rem; }
+        @media (max-width: 700px) { .info-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 540px) { .rsvp-fields { grid-template-columns: 1fr; } .form-field-full { grid-column: auto; } }
 
         /* ----- GALERIE ----- */
         .gallery-section {
@@ -1003,8 +1039,11 @@
     <nav class="navbar" id="navbar">
         <a href="#hero" class="nav-btn active"><i class="fas fa-home"></i> Accueil</a>
         <a href="#agenda" class="nav-btn"><i class="fas fa-calendar-check"></i> Programme</a>
+        <a href="#infos" class="nav-btn"><i class="fas fa-map-marker-alt"></i> Infos pratiques</a>
         <a href="#gallery" class="nav-btn"><i class="fas fa-images"></i> Galerie</a>
         <a href="#story" class="nav-btn"><i class="fas fa-feather-alt"></i> Notre rencontre</a>
+        <a href="#faq" class="nav-btn"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="#rsvp" class="nav-btn"><i class="fas fa-envelope-open-text"></i> RSVP</a>
         <a href="#guestbook" class="nav-btn"><i class="fas fa-book-open"></i> Livre d'or</a>
         <div class="lang-switch">
             <button class="active" data-lang="fr" id="langFr">FR</button>
@@ -1062,6 +1101,19 @@
             </div>
         </section>
 
+        <!-- INFOS PRATIQUES: remplacer le lieu, la ville et le lien Maps avant publication. -->
+        <section class="info-section" id="infos">
+            <div class="container">
+                <div class="section-title"><h2 data-i18n="info-title"><i class="fas fa-map-marked-alt" style="color: var(--gold); margin-right: 12px;"></i> informations pratiques</h2></div>
+                <div class="info-grid">
+                    <article class="info-card"><i class="fas fa-calendar-day" aria-hidden="true"></i><h3 data-i18n="info-date-title">La date</h3><p>23 mai 2027<br><span data-i18n="info-arrival-placeholder">Horaire d'arriv&eacute;e &agrave; pr&eacute;ciser</span><br>C&eacute;r&eacute;monie &agrave; 16 h</p></article>
+                    <article class="info-card"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><h3 data-i18n="info-place-title">Le lieu</h3><p>Jardin des Oliviers<br><span data-i18n="info-address-placeholder">Ville et adresse &agrave; personnaliser</span></p><a href="https://www.google.com/maps/search/?api=1&amp;query=Jardin+des+Oliviers" target="_blank" rel="noopener noreferrer" data-i18n="info-map-link">Voir le lieu sur Maps (lien &agrave; personnaliser)</a></article>
+                    <article class="info-card"><i class="fas fa-user-tie" aria-hidden="true"></i><h3 data-i18n="info-dress-title">Tenue</h3><p data-i18n="info-dress-text">Consigne vestimentaire &agrave; personnaliser</p></article>
+                </div>
+                <p class="template-note" data-i18n="info-template-note">Modifiez le nom du lieu, l'adresse et le lien Maps avant de partager ce template.</p>
+            </div>
+        </section>
+
         <!-- GALERIE -->
         <section class="gallery-section" id="gallery">
             <div class="container">
@@ -1097,6 +1149,19 @@
             </div>
         </section>
 
+        <!-- FAQ -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-title"><h2 data-i18n="faq-title"><i class="fas fa-question-circle" style="color: var(--gold); margin-right: 12px;"></i> questions fr&eacute;quentes</h2></div>
+                <div class="faq-list">
+                    <details><summary data-i18n="faq-place-question">O&ugrave; se d&eacute;roule la c&eacute;r&eacute;monie ?</summary><p data-i18n="faq-place-answer">Au Jardin des Oliviers. Remplacez ce lieu d'exemple et ajoutez l'adresse compl&egrave;te avant publication.</p></details>
+                    <details><summary data-i18n="faq-time-question">&Agrave; quelle heure faut-il arriver ?</summary><p data-i18n="faq-time-answer">La c&eacute;r&eacute;monie commence &agrave; 16 h. Indiquez ici l'heure d'accueil si les invit&eacute;s doivent arriver plus t&ocirc;t.</p></details>
+                    <details><summary data-i18n="faq-rsvp-question">Comment confirmer ma pr&eacute;sence ?</summary><p data-i18n="faq-rsvp-answer">Utilisez le formulaire RSVP et r&eacute;pondez avant la date limite indiqu&eacute;e sur votre invitation.</p></details>
+                    <details><summary data-i18n="faq-contact-question">Comment poser une autre question ?</summary><p data-i18n="faq-contact-answer">L'adresse de contact du template est un exemple. Remplacez-la par l'adresse des organisateurs avant publication.</p></details>
+                </div>
+            </div>
+        </section>
+
         <!-- STORY -->
         <section class="story-section" id="story">
             <img class="story-bg" src="https://images.pexels.com/photos/33005349/pexels-photo-33005349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Rencontre romantique">
@@ -1114,6 +1179,26 @@
             </div>
         </section>
 
+        <!-- RSVP: l'adresse example.com est une valeur d'exemple &agrave; remplacer. -->
+        <section class="rsvp-section" id="rsvp">
+            <div class="container">
+                <div class="section-title"><h2 data-i18n="rsvp-title"><i class="fas fa-envelope-open-text" style="color: var(--gold); margin-right: 12px;"></i> confirmer votre pr&eacute;sence</h2></div>
+                <div class="guestbook-container">
+                    <form class="rsvp-form" id="rsvpForm">
+                        <div class="rsvp-fields">
+                            <label class="form-field form-field-full" for="rsvpName"><span data-i18n="rsvp-name-label">Votre nom</span><input id="rsvpName" name="name" type="text" autocomplete="name" required></label>
+                            <label class="form-field" for="rsvpAttendance"><span data-i18n="rsvp-attendance-label">Votre r&eacute;ponse</span><select id="rsvpAttendance" name="attendance" required><option value="yes" data-i18n="rsvp-yes">Oui, avec plaisir</option><option value="no" data-i18n="rsvp-no">Non, malheureusement</option></select></label>
+                            <label class="form-field" for="rsvpGuests"><span data-i18n="rsvp-guests-label">Nombre de personnes</span><select id="rsvpGuests" name="guests"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></label>
+                            <label class="form-field form-field-full" for="rsvpDiet"><span data-i18n="rsvp-diet-label">Allergies ou pr&eacute;f&eacute;rences alimentaires (facultatif)</span><textarea id="rsvpDiet" name="diet"></textarea></label>
+                        </div>
+                        <button class="btn rsvp-submit" type="submit" data-i18n="rsvp-submit"><i class="fas fa-paper-plane"></i> Pr&eacute;parer ma r&eacute;ponse par e-mail</button>
+                        <p class="form-note" data-i18n="rsvp-note">Ce formulaire pr&eacute;pare un e-mail vers khalil.lyanna@example.com. Remplacez cette adresse dans le code du template. Votre application e-mail s'ouvrira : vous devrez appuyer sur Envoyer pour transmettre la r&eacute;ponse.</p>
+                        <p class="form-status" id="rsvpStatus" role="status" aria-live="polite" hidden></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
         <!-- GUESTBOOK -->
         <section class="guestbook-section" id="guestbook">
             <div class="container">
@@ -1122,12 +1207,11 @@
                 </div>
                 <div class="guestbook-container">
                     <textarea id="guestMessage" placeholder="Laissez un petit mot pour Khalil & Lyanna …" rows="3" data-i18n-placeholder="guest-placeholder"></textarea>
+                    <p class="form-note" data-i18n="guestbook-note">Le bouton pr&eacute;pare un e-mail. Votre application de messagerie s'ouvrira et vous devrez appuyer sur Envoyer.</p>
                     <div style="display: flex; justify-content: flex-end; align-items: center; gap: 16px; flex-wrap: wrap;">
                         <button class="btn" id="sendMessage" data-i18n="send-btn"><i class="fas fa-pen-fancy"></i> envoyer</button>
                     </div>
-                    <div class="message-confirm" id="messageConfirm" data-i18n="confirm-msg">
-                        <i class="fas fa-check-circle" style="color: var(--gold);"></i> Votre message a été envoyé aux mariés par email !
-                    </div>
+                    <div class="message-confirm" id="messageConfirm" data-i18n="confirm-msg"><i class="fas fa-info-circle" style="color: var(--gold);"></i> Si votre application e-mail s'ouvre, appuyez sur Envoyer pour transmettre le message.</div>
                 </div>
             </div>
         </section>
@@ -1171,7 +1255,8 @@
             updateCountdown();
             setInterval(updateCountdown, 1000);
 
-            // GUESTBOOK
+            // GUESTBOOK AND RSVP: replace this example address before publishing.
+            const contactEmail = 'khalil.lyanna@example.com';
             const messageInput = document.getElementById('guestMessage');
             const sendBtn = document.getElementById('sendMessage');
             const confirmMsg = document.getElementById('messageConfirm');
@@ -1188,7 +1273,7 @@
                     `Message de : Invité·e\n\n${text}\n\n---\nMessage envoyé depuis le site de mariage Khalil & Lyanna - 23.05.27`
                 );
                 window.location.href =
-                    `mailto:khalil.lyanna@example.com?subject=${subject}&body=${body}`;
+                    'mailto:' + contactEmail + '?subject=' + subject + '&body=' + body;
 
                 confirmMsg.classList.add('show');
                 messageInput.value = '';
@@ -1196,6 +1281,24 @@
                 setTimeout(() => {
                     confirmMsg.classList.remove('show');
                 }, 6000);
+            });
+
+            const rsvpForm = document.getElementById('rsvpForm');
+            const rsvpStatus = document.getElementById('rsvpStatus');
+            rsvpForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const form = new FormData(rsvpForm);
+                const attendance = form.get('attendance') === 'yes' ? translations[currentLang]['rsvp-yes'] : translations[currentLang]['rsvp-no'];
+                const subject = encodeURIComponent('RSVP - Khalil & Lyanna');
+                const body = encodeURIComponent(
+                    'Nom : ' + form.get('name') + '\n' +
+                    'R\u00E9ponse : ' + attendance + '\n' +
+                    'Nombre de personnes : ' + form.get('guests') + '\n' +
+                    'Allergies / pr\u00E9f\u00E9rences : ' + (form.get('diet') || 'Non pr\u00E9cis\u00E9es')
+                );
+                rsvpStatus.textContent = translations[currentLang]['rsvp-sent'];
+                rsvpStatus.hidden = false;
+                window.location.href = 'mailto:' + contactEmail + '?subject=' + subject + '&body=' + body;
             });
 
             messageInput.addEventListener('keypress', function(e) {
@@ -1242,6 +1345,36 @@
                     'minutes': 'minutes',
                     'seconds': 'secondes',
                     'agenda-title': 'programme',
+                    'info-title': 'informations pratiques',
+                    'info-date-title': 'La date',
+                    'info-arrival-placeholder': 'Heure d'arrivée à préciser',
+                    'info-place-title': 'Le lieu',
+                    'info-address-placeholder': 'Ville et adresse \u00E0 personnaliser',
+                    'info-map-link': 'Voir le lieu sur Maps (lien \u00E0 personnaliser)',
+                    'info-dress-title': 'Tenue',
+                    'info-dress-text': 'Consigne vestimentaire à personnaliser',
+                    'info-template-note': "Modifiez le nom du lieu, l'adresse et le lien Maps avant de partager ce template.",
+                    'faq-title': 'questions fr\u00E9quentes',
+                    'faq-place-question': 'O\u00F9 se d\u00E9roule la c\u00E9r\u00E9monie ?',
+                    'faq-place-answer': "Au Jardin des Oliviers. Remplacez ce lieu exemple et ajoutez l'adresse compl\u00E8te avant publication.",
+                    'faq-time-question': '\u00C0 quelle heure faut-il arriver ?',
+                    'faq-time-answer': 'La cérémonie commence à 16 h. Indiquez l'heure d'accueil si les invités doivent arriver plus tôt.',
+                    'faq-rsvp-question': 'Comment confirmer ma pr\u00E9sence ?',
+                    'faq-rsvp-answer': 'Utilisez le formulaire RSVP et r\u00E9pondez avant la date limite indiqu\u00E9e sur votre invitation.',
+                    'faq-contact-question': 'Comment poser une autre question ?',
+                    'faq-contact-answer': "L'adresse de contact est un exemple. Remplacez-la par celle des organisateurs avant publication.",
+                    'rsvp-title': 'confirmer votre pr\u00E9sence',
+                    'rsvp-name-label': 'Votre nom',
+                    'rsvp-attendance-label': 'Votre r\u00E9ponse',
+                    'rsvp-yes': 'Oui, avec plaisir',
+                    'rsvp-no': 'Non, malheureusement',
+                    'rsvp-guests-label': 'Nombre de personnes',
+                    'rsvp-diet-label': 'Allergies ou pr\u00E9f\u00E9rences alimentaires (facultatif)',
+                    'rsvp-submit': 'Pr\u00E9parer ma r\u00E9ponse par e-mail',
+                    'rsvp-note': "Ce formulaire pr\u00E9pare un e-mail vers khalil.lyanna@example.com. Remplacez cette adresse dans le code du template. Votre application e-mail s'ouvrira : vous devrez appuyer sur Envoyer.",
+                    'rsvp-sent': "Votre application e-mail devrait s'ouvrir avec la r\u00E9ponse pr\u00E9par\u00E9e. Appuyez sur Envoyer pour la transmettre.",
+                    'guestbook-note': "Le bouton pr\u00E9pare un e-mail. Votre application de messagerie s'ouvrira ; appuyez sur Envoyer pour transmettre le message.",
+                    'confirm-msg': "Si votre application e-mail s'ouvre, appuyez sur Envoyer pour transmettre le message.",
                     'gallery-title': 'quelques instants à deux',
                     'gallery-caption-1': 'Un regard complice',
                     'gallery-caption-2': 'Le premier baiser',
@@ -1257,7 +1390,6 @@
                     'guestbook-title': 'livre d\'or',
                     'guest-placeholder': 'Laissez un petit mot pour Khalil & Lyanna …',
                     'send-btn': 'envoyer',
-                    'confirm-msg': 'Votre message a été envoyé aux mariés par email !'
                 },
                 en: {
                     'countdown-title': 'before the big day',
@@ -1266,6 +1398,36 @@
                     'minutes': 'minutes',
                     'seconds': 'seconds',
                     'agenda-title': 'schedule',
+                    'info-title': 'practical information',
+                    'info-date-title': 'La date',
+                    'info-arrival-placeholder': 'Arrival time to be confirmed',
+                    'info-place-title': 'The venue',
+                    'info-address-placeholder': 'City and address to customize',
+                    'info-map-link': 'Open Maps (customize this link)',
+                    'info-dress-title': 'Dress code',
+                    'info-dress-text': 'Dress code to customize',
+                    'info-template-note': 'Update the venue name, address and Maps link before sharing this template.',
+                    'faq-title': 'frequently asked questions',
+                    'faq-place-question': 'Where is the ceremony?',
+                    'faq-place-answer': 'At Jardin des Oliviers. Replace this example venue and add the full address before publishing.',
+                    'faq-time-question': 'What time should I arrive?',
+                    'faq-time-answer': 'The ceremony starts at 4 p.m. Add an arrival time if guests should come earlier.',
+                    'faq-rsvp-question': 'How do I RSVP?',
+                    'faq-rsvp-answer': 'Use the RSVP form and reply by the deadline shown on your invitation.',
+                    'faq-contact-question': 'How can I ask another question?',
+                    'faq-contact-answer': 'The contact address is an example. Replace it with the organizers address before publishing.',
+                    'rsvp-title': 'confirm your attendance',
+                    'rsvp-name-label': 'Your name',
+                    'rsvp-attendance-label': 'Your response',
+                    'rsvp-yes': 'Yes, gladly',
+                    'rsvp-no': 'Sorry, I cannot attend',
+                    'rsvp-guests-label': 'Number of guests',
+                    'rsvp-diet-label': 'Allergies or dietary preferences (optional)',
+                    'rsvp-submit': 'Prepare my reply by email',
+                    'rsvp-note': 'This form prepares an email to khalil.lyanna@example.com. Replace this address in the template code. Your email app opens; press Send to submit.',
+                    'rsvp-sent': 'Your email app should open with the reply prepared. Press Send to submit it.',
+                    'guestbook-note': 'This button prepares an email. Your mail app opens; press Send to transmit the message.',
+                    'confirm-msg': 'If your email app opens, press Send to transmit the message.',
                     'gallery-title': 'moments together',
                     'gallery-caption-1': 'A knowing glance',
                     'gallery-caption-2': 'The first kiss',
@@ -1281,7 +1443,6 @@
                     'guestbook-title': 'guestbook',
                     'guest-placeholder': 'Leave a message for Khalil & Lyanna …',
                     'send-btn': 'send',
-                    'confirm-msg': 'Your message has been sent to the couple by email!'
                 }
             };
 
