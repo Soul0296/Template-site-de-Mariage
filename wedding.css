@@ -1159,3 +1159,48 @@
 @media (prefers-reduced-motion: reduce) {
     .photo-reveal-ready, .photo-reveal-ready.is-visible { opacity: 1; transform: none; filter: none; transition: none; will-change: auto; }
 }
+
+
+/* Three-beat wedding monogram opening, followed by a full-screen zoom reveal. */
+.intro-splash {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: #fff;
+    animation: intro-splash-away 1.2s ease-in 3s forwards;
+}
+.intro-splash img {
+    display: block;
+    width: min(76vw, 700px);
+    max-height: 72vh;
+    object-fit: contain;
+    transform-origin: center;
+    animation: intro-logo-beats 4.2s cubic-bezier(.55, 0, .8, .35) forwards;
+}
+@keyframes intro-logo-beats {
+    0% { transform: scale(.96); opacity: 1; }
+    4.8% { transform: scale(1.04); }
+    9.5% { transform: scale(.98); }
+    14.3% { transform: scale(1); }
+    28.6% { transform: scale(1); }
+    33.3% { transform: scale(1.04); }
+    38.1% { transform: scale(.98); }
+    42.9% { transform: scale(1); }
+    52.4% { transform: scale(1); }
+    57.1% { transform: scale(1.04); }
+    61.9% { transform: scale(.98); }
+    71.4% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(14); opacity: 0; }
+}
+@keyframes intro-splash-away {
+    0% { opacity: 1; visibility: visible; }
+    99% { opacity: 0; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .intro-splash { display: none; animation: none; }
+    .intro-splash img { animation: none; }
+}
